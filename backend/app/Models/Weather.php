@@ -10,4 +10,13 @@ class Weather extends Model
     use HasFactory;
 
     protected $table = 'weather';
+
+    protected $fillable = [
+        'city',
+        'date',
+        'temperature',
+        'pressure',
+        'humidity',
+        'weather'
+    ];
 }

@@ -1,9 +1,11 @@
 <template>
   <div class="container">
     <div class="w-1/4 p-4">
-      <h3>Cities</h3>
-      <ul>
-        <li v-for="city in cities" @click="selectCity(city)">{{ city }}</li>
+      <h3 class="text-xl font-bold mb-4">Cities</h3>
+      <ul class="list-group">
+        <li class="list-group-item" v-for="city in cities" @click="selectCity(city)">
+          {{ city }}
+        </li>
       </ul>
     </div>
     <div class="w-3/4 p-4">
@@ -27,7 +29,7 @@ export default {
       selectedCity: ''
     };
   },
-  created() {
+  mounted() {
     this.fetchCities();
   },
   methods: {

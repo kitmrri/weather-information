@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WeatherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/cities', function (Request $request) {
-    return [
-        'Tokyo', 'Yokohama', 'Kyoto', 'Osaka', 'Sapporo', 'Nagoya'
-    ];
-});
+Route::get('/cities', 'App\Http\Controllers\CitiesController@getCities');
+Route::post('/fetchForecastData', 'App\Http\Controllers\WeatherController@fetchForecastData');
+Route::post('/fetchCurrentWeatherData', 'App\Http\Controllers\WeatherController@fetchCurrentWeatherData');
