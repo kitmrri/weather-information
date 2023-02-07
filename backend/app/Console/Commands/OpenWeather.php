@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use App\Services\WeatherInterfaces;
 use Illuminate\Console\Command;
+use App\Models\Weather;
+
 
 class OpenWeather extends Command
 {
@@ -12,7 +14,7 @@ class OpenWeather extends Command
      *
      * @var string
      */
-    protected $signature = 'openweather {type} {city}';
+    protected $signature = 'openweather';
 
     /**
      * The console command description.
@@ -29,10 +31,13 @@ class OpenWeather extends Command
     public function handle(WeatherInterfaces $openWeather)
     {
         $res = $openWeather->fetch([
-            'type' => 'weather',
+            'type' => 'forecast',
             'city' => 'Tokyo',
         ]);
-
+        collect($res['list'])->each(function($item){
+            // var_dump($item['dt']);
+            Weather::create($item);
+        });
         return Command::SUCCESS;
     }
 }

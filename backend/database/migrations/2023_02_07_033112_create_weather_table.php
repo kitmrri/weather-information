@@ -16,13 +16,15 @@ return new class extends Migration
         Schema::create('weather', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('dt')->unique();
-            $table->dateTime('dt_text');
-            $table->string('city');
-            $table->dateTime('date');
-            $table->float('temperature');
-            $table->float('pressure');
-            $table->integer('humidity');
-            $table->string('weather');
+            $table->json('main');
+            $table->json('weather');
+            // $table->json('weather');
+            // $table->string('city');
+            // $table->dateTime('date');
+            // $table->float('temperature');
+            // $table->float('pressure');
+            // $table->integer('humidity');
+            // $table->string('weather');
             $table->timestamps();
         });
     }
