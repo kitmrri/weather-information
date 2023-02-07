@@ -17,6 +17,6 @@ class Weather extends Model
         'temperature',
         'pressure',
         'humidity',
-        'weather'
+        'weather',
     ];
 }
