@@ -17,11 +17,9 @@ class Weather extends Model
 
     protected $fillable = [
         'city',
-        'date',
-        'temperature',
-        'pressure',
-        'humidity',
+        'main',
         'weather',
+        'dt',
     ];
 
 

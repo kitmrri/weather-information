@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Weather;
 use Illuminate\Http\Request;
 
 class ForecastController extends Controller
@@ -12,9 +13,17 @@ class ForecastController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $forecasts = Weather::where(
+            'dt', '>', now()->unix()
+        )
+        ->where([
+            'city' => $request->get('city')
+        ])
+        ->get();
+
+        return response()->json($forecasts);
     }
 
     /**

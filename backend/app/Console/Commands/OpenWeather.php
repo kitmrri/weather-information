@@ -35,8 +35,17 @@ class OpenWeather extends Command
             'city' => 'Tokyo',
         ]);
         collect($res['list'])->each(function($item){
-            // var_dump($item['dt']);
-            Weather::create($item);
+            var_dump([
+                'dt' => $item['dt'],
+                'main' => $item['main'],
+                'weather' => $item['weather']
+            ]);
+            Weather::create([
+                'city' => 'Tokyo',
+                'dt' => $item['dt'],
+                'main' => $item['main'],
+                'weather' => $item['weather']
+            ]);
         });
         return Command::SUCCESS;
     }

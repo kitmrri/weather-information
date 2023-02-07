@@ -18,13 +18,7 @@ return new class extends Migration
             $table->bigInteger('dt')->unique();
             $table->json('main');
             $table->json('weather');
-            // $table->json('weather');
-            // $table->string('city');
-            // $table->dateTime('date');
-            // $table->float('temperature');
-            // $table->float('pressure');
-            // $table->integer('humidity');
-            // $table->string('weather');
+            $table->string('city');
             $table->timestamps();
         });
     }
