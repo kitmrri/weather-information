@@ -24,10 +24,23 @@ cd backend
 npm install
 ```
 
+Make sure you have .env file, copy .env.example and edit the database values. Also, you need to add these variable to .env file
+```bash
+OPENWEATHER_API_KEY=YOUR_API_KEY
+OPENWEATHER_BASE_URL=https://api.openweathermap.org/data/2.5
+GEOAPIFY_API_KEY=312bc95953e648f59928868cace5085f
+GEOAPIFY_BASE_URL=YOUR_API_KEY
+```
+
 and in spa:
 ```bash
 cd spa
 npm install
+```
+
+Make sure you also have .env file in SPA, create .env file and add this variable
+```bash
+VITE_WEATHER_INFORMATION_BASE_URL='http://127.0.0.1:8000'
 ```
 
 Run the migration necessary for the application:
