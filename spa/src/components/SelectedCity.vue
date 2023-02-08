@@ -7,10 +7,10 @@
             style="display: inline-block; vertical-align: middle;">
       </h2>
     </div>
-    <div class="flex h-full bg-transparent text-white">
+    <div class="flex h-full text-white">
       <div class="flex-1 flex flex-col">
         <div class="h-full flex-grow-0 overflow-y-auto overscroll-contain">
-          <div class="text-center py-4">
+          <div class="text-center py-2">
             <h2 class="text-lg font-medium">5 Day Forecast:</h2>
           </div>   
           <div class="p-4 mb-4" v-for="(forecasts, date) in groupedForecasts" :key="date">

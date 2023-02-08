@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-full">
     <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
       <ul class="flex flex-wrap -mb-px">
         <li class="mr-2">
@@ -17,7 +17,7 @@
         </li>
       </ul>
     </div>
-    <div v-if="activeTab === 'touristAttractions'">
+    <div class="h-full flex-grow-0 overflow-y-auto overscroll-contain" v-if="activeTab === 'touristAttractions'">
       <div class="text-center py-2">
       </div>    
       <ul>

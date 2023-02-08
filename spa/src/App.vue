@@ -17,3 +17,11 @@ onMounted(fetchData);
 <template>
   <RouterView />
 </template>
+
+
+<style>
+body
+{
+  background-image:url('./src/assets/background.jpg');
+} 
+</style>
