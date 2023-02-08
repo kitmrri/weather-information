@@ -9,14 +9,14 @@
     <aside id="cities-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
       <div class="h-full px-3 py-4 overflow-y-auto bg-transparent">
           <ul class="space-y-2">
-            <li class="cursor-pointer hover:bg-gray-200 text-white transition-all duration-200 ease-in-out p-4" v-for="(city, key) in cities" @click="selectCity(city)" :key="key">
+            <li class="p-4 text-black transition-all duration-200 ease-in-out cursor-pointer hover:bg-gray-700" v-for="(city, key) in cities" @click="selectCity(city)" :key="key">
               {{ city }}
             </li>
           </ul>
       </div>
     </aside>
     <div class="w-full p-4 sm:ml-64">
-      <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 overflow-y-scroll">
+      <div class="p-4 overflow-y-scroll border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
         <SelectedCity :selectedCity="selectedCity"/>
       </div>
     </div>

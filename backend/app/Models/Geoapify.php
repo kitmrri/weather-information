@@ -15,6 +15,6 @@ class Geoapify extends Model
         'city',
         'name',
         'address_line',
-        'category'
+        'category',
     ];
 }

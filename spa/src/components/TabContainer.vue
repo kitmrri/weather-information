@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full">
+  <div>
     <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
       <ul class="flex flex-wrap -mb-px">
         <li class="mr-2">
@@ -17,11 +17,11 @@
         </li>
       </ul>
     </div>
-    <div class="h-full flex-grow-0 overflow-y-auto overscroll-contain" v-if="activeTab === 'touristAttractions'">
-      <div class="text-center py-2">
+    <div v-if="activeTab === 'touristAttractions'">
+      <div class="py-2 text-center">
       </div>    
       <ul>
-        <li class="border border-slate-600 rounded p-4 mb-4" v-for="(touristSpot, key) in touristSpots" :key="key">
+        <li class="p-4 mb-4 border rounded border-slate-600" v-for="(touristSpot, key) in touristSpots" :key="key">
           <p>Name: {{ touristSpot.name }}</p>
           <p>Address: {{ touristSpot.address_line }}</p>
           <a :href="`https://www.google.com/maps/search/?api=1&query=${encodeURI(touristSpot.name)}`" target="_blank" class="text-blue-300">Open Map</a>
@@ -29,10 +29,10 @@
       </ul>
     </div>
     <div v-else>
-      <div class="text-center py-4">
+      <div class="py-4 text-center">
       </div>    
       <ul>
-        <li class="border border-slate-600 rounded p-4 mb-4" v-for="(restaurant, key) in restaurants" :key="key">
+        <li class="p-4 mb-4 border rounded border-slate-600" v-for="(restaurant, key) in restaurants" :key="key">
           <p>Name: {{ restaurant.name }}</p>
           <p>Address: {{ restaurant.address_line }}</p>
           <a :href="`https://www.google.com/maps/search/?api=1&query=${encodeURI(restaurant.name)}`" target="_blank" class="text-blue-300">Open Map</a>

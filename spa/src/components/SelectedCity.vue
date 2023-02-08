@@ -1,16 +1,16 @@
 <template>
-  <div class="h-screen flex flex-col widget">
-    <div class="text-lg text-center text-gray-100 font-medium bg-cover bg-center" :style="backgroundImage" v-if="currentWeather.main">
-      <h2 class="text-transform: capitalize">
+  <div class="flex flex-col h-screen widget">
+    <div class="text-lg font-medium text-center text-blue-500 bg-center bg-cover" :style="backgroundImage" v-if="currentWeather.main">
+      <h2 class="capitalize text-transform:">
         Current Weather in {{selectedCity}}: {{ currentWeather.main.temp }} &#8451; - {{ currentWeather.weather[0].description }}
           <img :src="'http://openweathermap.org/img/wn/' + currentWeather.weather[0].icon + '.png'"
             style="display: inline-block; vertical-align: middle;">
       </h2>
     </div>
-    <div class="flex h-full text-white">
-      <div class="flex-1 flex flex-col">
-        <div class="h-full flex-grow-0 overflow-y-auto overscroll-contain">
-          <div class="text-center py-2">
+    <div class="flex h-full text-black">
+      <div class="flex flex-col flex-1">
+        <div class="flex-grow-0 h-full overflow-y-auto overscroll-contain">
+          <div class="py-2 text-center">
             <h2 class="text-lg font-medium">5 Day Forecast:</h2>
           </div>   
           <div class="p-4 mb-4" v-for="(forecasts, date) in groupedForecasts" :key="date">
@@ -68,7 +68,7 @@ export default {
       return grouped;
     },
     backgroundImage() {
-      let imageUrl = "./src/assets/" + this.selectedCity + ".jpg";
+      let imageUrl = "./src/assets/" + this.selectedCity + ".png";
       return {
         "background-image": `url(${imageUrl})`
       };

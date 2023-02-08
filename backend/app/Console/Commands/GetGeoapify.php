@@ -46,7 +46,7 @@ class GetGeoapify extends Command
                         'city' => $city['name'],
                         'name' => $feature['properties']['name'] ?? $feature['properties']['street'],
                         'address_line' => $feature['properties']['address_line2'],
-                        'category' => $category
+                        'category' => $category,
                     ]);
                 }
             }
