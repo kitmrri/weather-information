@@ -9,6 +9,8 @@ I created a custom command called `getopenweather` and `getgeoapify` to 'prepare
 
 There is a reusable interface called `ApiInterface`, it is a `ServiceProvider` that `OpenWeather` and `OpenGeoapify` is using to create its own use of the function but not altering the `main function` which is inside the ApiInterface.
 
+For cleaning and uniformity of format and spacing of codes, i used `Laravel Pint` to automatically correct the corrections of every php file in backend folder. This free up significant time when cleaning manually. This also adds uniformity if ever another developer updates the application.
+
 ## Features
 * Fetch current weather data and 5-day forecast for a given location
 * Minimize API calls by saving data in a MySQL database
