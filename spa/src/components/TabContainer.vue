@@ -6,7 +6,8 @@
           <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
             @click="activeTab = 'touristAttractions'"
             :class="['inline-block p-4 border-b-2 border-transparent rounded-t-lg', {'text-zinc-50 active': activeTab === 'touristAttractions'}]"
-            aria-current="page">Tourist Attractions</a>
+            aria-current="page"
+            >Tourist Attractions</a>
         </li>
         <li class="mr-2">
           <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
@@ -23,6 +24,7 @@
         <li class="border border-slate-600 rounded p-4 mb-4" v-for="(touristSpot, key) in touristSpots" :key="key">
           <p>Name: {{ touristSpot.name }}</p>
           <p>Address: {{ touristSpot.address_line }}</p>
+          <a :href="`https://www.google.com/maps/search/?api=1&query=${encodeURI(touristSpot.name)}`" target="_blank" class="text-blue-300">Open Map</a>
         </li>
       </ul>
     </div>
@@ -54,7 +56,7 @@ export default {
     },
     touristSpots() {
       return this.placeInformation.filter(item => item.category === 'tourism.sights');
-    },
-  },
+    }
+  }
 };
 </script>
