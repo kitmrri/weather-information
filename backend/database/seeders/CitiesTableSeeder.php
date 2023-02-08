@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\City;
+use Illuminate\Database\Seeder;
 
 class CitiesTableSeeder extends Seeder
 {
@@ -16,7 +15,7 @@ class CitiesTableSeeder extends Seeder
     public function run()
     {
         $cities = [
-            'Tokyo', 'Yokohama', 'Kyoto', 'Osaka', 'Sapporo', 'Nagoya'
+            'Tokyo', 'Yokohama', 'Kyoto', 'Osaka', 'Sapporo', 'Nagoya',
         ];
 
         foreach ($cities as $city) {

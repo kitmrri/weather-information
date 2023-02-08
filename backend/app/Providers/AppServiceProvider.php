@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\OpenWeather;
+use App\Services\WeatherInterfaces;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(WeatherInterfaces::class, OpenWeather::class);
     }
 
     /**

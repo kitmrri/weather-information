@@ -17,4 +17,3 @@ onMounted(fetchData);
 <template>
   <RouterView />
 </template>
-
