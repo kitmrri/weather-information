@@ -3,6 +3,8 @@
 
 The application aims to provide weather information for specific countries in Japan (Tokyo, Yokohama, Kyoto, Osaka, Sapporo and Nagoya). This app displays the current weather and a 5 day forecast of the selected city.
 
+** Explanation on why the technologies used below are the one that I used in creating this application.**
+
 ## Technologies Used
 - Laravel: A PHP framework for web application development
 - Vue: A JavaScript framework for building user interfaces
