@@ -18,7 +18,7 @@
       </ul>
     </div>
     <div v-if="activeTab === 'touristAttractions'">
-      <div class="text-center py-4">
+      <div class="text-center py-2">
       </div>    
       <ul>
         <li class="border border-slate-600 rounded p-4 mb-4" v-for="(touristSpot, key) in touristSpots" :key="key">
@@ -43,7 +43,6 @@
 </template>
 
 <script>
-
 export default {
   props: ["placeInformation"],
   data() {
