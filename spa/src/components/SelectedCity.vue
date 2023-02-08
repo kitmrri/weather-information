@@ -2,12 +2,9 @@
   <div class="h-screen flex flex-col widget">
     <div class="text-lg text-center text-gray-100 font-medium bg-cover bg-center" :style="backgroundImage" v-if="currentWeather.main">
       <h2 class="text-transform: capitalize">
-        Current Weather in {{selectedCity}}: {{ currentWeather.main.temp }} &#8451; 
-        <p>
-          {{ currentWeather.weather[0].description }}
+        Current Weather in {{selectedCity}}: {{ currentWeather.main.temp }} &#8451; - {{ currentWeather.weather[0].description }}
           <img :src="'http://openweathermap.org/img/wn/' + currentWeather.weather[0].icon + '.png'"
             style="display: inline-block; vertical-align: middle;">
-        </p>
       </h2>
     </div>
     <div class="flex h-full bg-transparent text-white">

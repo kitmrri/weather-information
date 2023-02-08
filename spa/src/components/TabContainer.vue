@@ -28,7 +28,7 @@
         </li>
       </ul>
     </div>
-    <div v-if="activeTab === 'restaurants'">
+    <div v-else>
       <div class="text-center py-4">
       </div>    
       <ul>
