@@ -1,19 +1,19 @@
 <template>
   <div class="h-screen flex flex-col widget">
-    <div class="text-lg text-center font-medium bg-sky-300" v-if="currentWeather.main">
+    <div class="text-lg text-center font-medium bg-sky-500" v-if="currentWeather.main">
       <h2 class="text-transform: capitalize">
         Current Weather in {{selectedCity}}: {{ currentWeather.main.temp }} &#8451; - {{ currentWeather.weather[0].description }}
         <img :src="'http://openweathermap.org/img/wn/' + currentWeather.weather[0].icon + '.png'"
             style="display: inline-block; vertical-align: middle;">
       </h2>
     </div>
-    <div class="flex h-full">
+    <div class="flex h-full bg-transparent text-white">
       <div class="flex-1 flex flex-col">
-        <div class="bg-sky-200 h-full flex-grow-0 overflow-y-auto overscroll-contain">
-          <div class="bg-gray-300 text-center py-4">
+        <div class="h-full flex-grow-0 overflow-y-auto overscroll-contain">
+          <div class="text-center py-4">
             <h2 class="text-lg font-medium">5 Day Forecast:</h2>
           </div>   
-          <div class="border rounded p-4 mb-4" v-for="(forecasts, date) in groupedForecasts" :key="date">
+          <div class="p-4 mb-4" v-for="(forecasts, date) in groupedForecasts" :key="date">
             <ul>
               <li v-for="(forecast, index) in forecasts" :key="index">
                 {{ formatDate(forecast.dt) }} - {{ forecast.main.temp }} &#8451; - {{ forecast.weather[0].description }}
@@ -23,12 +23,12 @@
           </div>
         </div>
       </div>
-      <div class="flex-1 bg-sky-200">
-        <div class="bg-gray-300 text-center py-4">
+      <div class="flex-1">
+        <div class="text-center py-4">
           <h2 class="text-lg font-medium">Tourist Attractions</h2>
         </div>    
         <ul>
-          <li class="border rounded p-4 mb-4" v-for="(information, key) in placeInformation" :key="key">
+          <li class="border border-slate-600 rounded p-4 mb-4" v-for="(information, key) in placeInformation" :key="key">
             <p>Name: {{ information.name }}</p>
             <p>Address: {{ information.address_line }}</p>
           </li>
@@ -70,9 +70,6 @@ export default {
         grouped[date].push(forecast);
       });
       return grouped;
-    },
-    iconUrl() {
-      return `http://openweathermap.org/img/wn/${this.currentWeather.weather[0].icon}@2x.png`;
     }
   },
   methods: {
@@ -87,7 +84,6 @@ export default {
           this.currentWeather = currentWeatherResponse.data;
           this.fiveDayForecast = fiveDayForecastResponse.data;
           this.placeInformation = placeInformation.data
-          console.log(this.fiveDayForecast)
         } catch (error) {
           console.error(error);
         }
