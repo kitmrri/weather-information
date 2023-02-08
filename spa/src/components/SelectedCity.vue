@@ -24,15 +24,7 @@
         </div>
       </div>
       <div class="flex-1">
-        <div class="text-center py-4">
-          <h2 class="text-lg font-medium">Tourist Attractions</h2>
-        </div>    
-        <ul>
-          <li class="border border-slate-600 rounded p-4 mb-4" v-for="(information, key) in placeInformation" :key="key">
-            <p>Name: {{ information.name }}</p>
-            <p>Address: {{ information.address_line }}</p>
-          </li>
-        </ul>
+        <TabContainer :placeInformation="placeInformation"/>
       </div>
     </div>
   </div>
@@ -40,9 +32,13 @@
 
 <script>
 import { inject } from "vue";
+import TabContainer from "./TabContainer.vue";
 
 export default {
   props: ["selectedCity"],
+  components: {
+    TabContainer
+  },
   data() {
     return {
       axios: inject("axios"),

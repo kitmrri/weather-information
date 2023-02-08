@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('city')->index();
             $table->string('name')->index();
             $table->string('address_line');
+            $table->string('category');
             $table->timestamps();
         });
     }

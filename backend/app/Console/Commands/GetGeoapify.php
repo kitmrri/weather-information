@@ -31,20 +31,24 @@ class GetGeoapify extends Command
     public function handle(OpenGeoapify $openGeoapify)
     {
         $cities = City::select('name', 'latitude', 'longitude')->get();
-
+        $categories = ['tourism.sights', 'catering.restaurant'];
         foreach ($cities as $city) {
-            $res = $openGeoapify->fetch([
-                'lat' => $city['latitude'],
-                'lon' => $city['longitude'],
-            ]);
-
-            foreach ($res['features'] as $feature) {
-                dump($feature);
-                Geoapify::create([
-                    'city' => $city['name'],
-                    'name' => $feature['properties']['name'] ?? $feature['properties']['street'],
-                    'address_line' => $feature['properties']['address_line2'],
+            foreach ($categories as $category) {
+                $res = $openGeoapify->fetch([
+                    'category' => $category,
+                    'lat' => $city['latitude'],
+                    'lon' => $city['longitude'],
                 ]);
+
+                foreach ($res['features'] as $feature) {
+                    dump($feature);
+                    Geoapify::create([
+                        'city' => $city['name'],
+                        'name' => $feature['properties']['name'] ?? $feature['properties']['street'],
+                        'address_line' => $feature['properties']['address_line2'],
+                        'category' => $category
+                    ]);
+                }
             }
         }
 

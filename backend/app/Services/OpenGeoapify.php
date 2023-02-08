@@ -16,7 +16,7 @@ class OpenGeoapify implements ApiInterfaces
         $config = $this->getConfig();
 
         $response = Client::withToken($config['key'])->timeout(30)->get($config['base_url'], [
-            'categories' => 'tourism.sights',
+            'categories' => $params['category'],
             'bias' => 'proximity:'.$params['lon'].','.$params['lat'],
             'limit' => '5',
             'apiKey' => $config['key'],
