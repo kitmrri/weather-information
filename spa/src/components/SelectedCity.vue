@@ -1,16 +1,12 @@
 <template>
   <div class="h-screen flex flex-col widget">
-    <div class="text-lg text-center font-medium bg-sky-300">
-      <h2>City: {{ selectedCity }}</h2>
-      <h3>Current Weather:</h3>
-      <div v-if="currentWeather.main">
-        <p>{{ currentWeather.main.temp }} &#8451;</p>
-        <p class="text-transform: capitalize">
-          <img :src="'http://openweathermap.org/img/wn/' + currentWeather.weather[0].icon + '@2x.png'"
-              style="display: inline-block; vertical-align: middle;">
-          {{ currentWeather.weather[0].description }}
-        </p>
-      </div>
+    <div class="text-lg text-center font-medium bg-sky-300" v-if="currentWeather.main">
+      <h2>
+        Current Weather in {{selectedCity}}: {{ currentWeather.main.temp }} &#8451; -
+        <img :src="'http://openweathermap.org/img/wn/' + currentWeather.weather[0].icon + '.png'"
+            style="display: inline-block; vertical-align: middle;">
+        {{ currentWeather.weather[0].description }}
+      </h2>
     </div>
     <div class="flex h-full">
       <div class="flex-1 flex flex-col">
@@ -23,7 +19,7 @@
               <li v-for="(forecast, index) in forecasts" :key="index">
                 <p>{{ formatDate(forecast.dt) }} - {{ forecast.main.temp }} &#8451;</p>
                 <p class="text-transform: capitalize">
-                  <img :src="'http://openweathermap.org/img/wn/' + forecast.weather[0].icon + '@2x.png'" style="display: inline-block; vertical-align: middle;">
+                  <img :src="'http://openweathermap.org/img/wn/' + forecast.weather[0].icon + '.png'" style="display: inline-block; vertical-align: middle;">
                   {{ forecast.weather[0].description }}
                 </p>
               </li>
@@ -113,5 +109,9 @@ export default {
 .img{
   display: inline-block;
   vertical-align: middle;
+}
+.list-group {
+  max-height: 80vh;
+  overflow-y: scroll;
 }
 </style>
