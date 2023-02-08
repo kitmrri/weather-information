@@ -14,7 +14,6 @@ class Geoapify extends Model
     protected $fillable = [
         'city',
         'name',
-        'address_line'
+        'address_line',
     ];
-
 }

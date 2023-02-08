@@ -9,7 +9,8 @@ class Weather extends Model
 {
     use HasFactory;
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'dt';
     }
 
@@ -21,7 +22,6 @@ class Weather extends Model
         'weather',
         'dt',
     ];
-
 
     // {
     //     "dt": 1676030400,
@@ -60,9 +60,8 @@ class Weather extends Model
     //     "dt_txt": "2023-02-10 12:00:00"
     // },
 
-
     protected $casts = [
         'main' => 'array',
-        'weather' => 'array'
+        'weather' => 'array',
     ];
 }

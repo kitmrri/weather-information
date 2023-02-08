@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Services\OpenGeoapify;
-use Illuminate\Http\Request;
 use App\Models\Geoapify;
+use Illuminate\Http\Request;
 
 class GeoapifyController extends Controller
 {

@@ -26,6 +26,5 @@ class CitiesTableSeeder extends Seeder
         foreach ($cities as $city) {
             City::create(['name' => $city['name'], 'latitude' => $city['latitude'], 'longitude' => $city['longitude']]);
         }
-
     }
 }

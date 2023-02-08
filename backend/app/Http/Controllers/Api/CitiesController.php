@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\City;
+use Illuminate\Http\Request;
 
 class CitiesController extends Controller
 {
@@ -13,7 +13,6 @@ class CitiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function __invoke(Request $request)
     {
         $cities = City::pluck('name');

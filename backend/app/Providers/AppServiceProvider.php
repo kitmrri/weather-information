@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\Api\WeatherController;
 use App\Http\Controllers\Api\GeoapifyController;
-use App\Services\OpenWeather;
-use App\Services\OpenGeoapify;
+use App\Http\Controllers\Api\WeatherController;
 use App\Services\ApiInterfaces;
+use App\Services\OpenGeoapify;
+use App\Services\OpenWeather;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

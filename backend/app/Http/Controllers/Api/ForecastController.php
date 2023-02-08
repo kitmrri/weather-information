@@ -19,7 +19,7 @@ class ForecastController extends Controller
             'dt', '>', now()->unix()
         )
         ->where([
-            'city' => $request->get('city')
+            'city' => $request->get('city'),
         ])
         ->get();
 

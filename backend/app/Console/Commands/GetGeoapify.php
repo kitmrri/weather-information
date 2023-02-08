@@ -2,10 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Models\City;
+use App\Models\Geoapify;
 use App\Services\OpenGeoapify;
 use Illuminate\Console\Command;
-use App\Models\Geoapify;
-use App\Models\City;
 
 class GetGeoapify extends Command
 {
@@ -28,15 +28,14 @@ class GetGeoapify extends Command
      *
      * @return int
      */
-
     public function handle(OpenGeoapify $openGeoapify)
     {
         $cities = City::select('name', 'latitude', 'longitude')->get();
-    
+
         foreach ($cities as $city) {
             $res = $openGeoapify->fetch([
                 'lat' => $city['latitude'],
-                'lon' => $city['longitude']
+                'lon' => $city['longitude'],
             ]);
 
             foreach ($res['features'] as $feature) {
@@ -44,10 +43,11 @@ class GetGeoapify extends Command
                 Geoapify::create([
                     'city' => $city['name'],
                     'name' => $feature['properties']['name'] ?? $feature['properties']['street'],
-                    'address_line' => $feature['properties']['address_line2']
+                    'address_line' => $feature['properties']['address_line2'],
                 ]);
             }
         }
+
         return Command::SUCCESS;
     }
 }
