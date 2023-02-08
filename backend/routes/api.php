@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Api\ForecastController;
 use App\Http\Controllers\Api\WeatherController;
+use App\Http\Controllers\Api\GeoapifyController;
+use App\Http\Controllers\Api\CitiesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,5 +26,9 @@ Route::apiResource('/forecast', ForecastController::class)->only([
     'index',
     'show',
 ]);
+Route::apiResource('/geoapify', GeoapifyController::class)->only([
+    'index'
+]);
 
 Route::get('/weather', WeatherController::class);
+Route::get('/cities', CitiesController::class);

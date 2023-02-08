@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-interface WeatherInterfaces
+interface ApiInterfaces
 {
     public function getConfig(): array;
 

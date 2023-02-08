@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Services;
+
+use Illuminate\Support\Facades\Http as Client;
+use App\Models\Geoapify;
+
+class OpenGeoapify implements ApiInterfaces
+{
+    public function getConfig(): array
+    {
+        return config('services.geoapify');
+    }
+
+    public function fetch(array $params): array
+    {
+        $config = $this->getConfig();
+
+        $response = Client::withToken($config['key'])->timeout(30)->get($config['base_url'], [
+            'categories' => 'tourism.sights',
+            'bias' => 'proximity:' . $params['lon'] . ',' . $params['lat'],
+            'limit' => '5',
+            'apiKey' => $config['key']
+        ]);
+
+        return $response->json();
+    }
+}

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('weather', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('dt')->unique();
+            $table->bigInteger('dt')->index();
+            $table->string('city')->index();
             $table->json('main');
             $table->json('weather');
-            $table->string('city');
             $table->timestamps();
         });
     }

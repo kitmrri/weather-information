@@ -1,19 +1,37 @@
 <template>
-  <div class="widget">
-    <div class="widget-header">
-      <h2>{{ selectedCity }}</h2>
-    </div>
-    <div class="widget-body">
+  <div class="h-screen flex flex-col widget">
+    <div class="text-lg text-center font-medium bg-gray-100">
+      <h2>City: {{ selectedCity }}</h2>
+      <h3>Current Weather:</h3>
       <div v-if="currentWeather.main">
-        <h3>Current Weather:</h3>
         <p>{{ currentWeather.main.temp }} &#8451;</p>
         <p>{{ currentWeather.weather[0].description }}</p>
       </div>
-      <div>
-        <h3>5-Day Forecast:</h3>
+    </div>
+    <div class="flex h-full">
+      <div class="flex-1 flex flex-col">
+        <div class="bg-slate-100 h-full flex-grow-0 overflow-y-auto overscroll-contain">
+          <div class="bg-gray-300 text-center py-4">
+            <h2 class="text-lg font-medium">5 Day Forecast:</h2>
+          </div>   
+          <div class="border rounded p-4 mb-4" v-for="(forecasts, date) in groupedForecasts" :key="date">
+            <h4>{{ date }}</h4>
+            <ul>
+              <li v-for="(forecast, index) in forecasts" :key="index">
+                {{ formatDate(forecast.dt) }} - {{ forecast.main.temp }} &#8451; - {{ forecast.weather[0].description }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1 bg-slate-200">
+        <div class="bg-gray-300 text-center py-4">
+          <h2 class="text-lg font-medium">Tourist Attractions</h2>
+        </div>    
         <ul>
-          <li v-for="forecast in fiveDayForecast">
-            {{ formatDate(forecast.dt_txt) }} - {{ forecast.main.temp }} &#8451; - {{ forecast.weather[0].description }}
+          <li class="border rounded p-4 mb-4" v-for="information in placeInformation">
+            <p>Name: {{ information.name }}</p>
+            <p>Address: {{ information.address_line }}</p>
           </li>
         </ul>
       </div>
@@ -30,7 +48,8 @@ export default {
     return {
       axios: inject("axios"),
       fiveDayForecast: [],
-      currentWeather: []
+      currentWeather: [],
+      placeInformation: []
     };
   },
   watch: {
@@ -40,46 +59,42 @@ export default {
   },
   created() {
     this.fetchWeatherData(this.selectedCity);
-    setInterval(() => {
-      console.log('refresh')
-      this.fetchWeatherData();
-    }, 4000);
+  },
+  computed: {
+    groupedForecasts() {
+      const grouped = {};
+      this.fiveDayForecast.forEach(forecast => {
+        const date = this.formatDate(forecast.dt).split(',')[0];
+        if (!grouped[date]) {
+          grouped[date] = [];
+        }
+        grouped[date].push(forecast);
+      });
+      return grouped;
+    }
   },
   methods: {
     async fetchWeatherData(selectedCity) {
       if (selectedCity) {
         try {
-          const currentWeatherResponse = await this.axios.post("/api/fetchCurrentWeatherData", { selectedCity });
+          const [currentWeatherResponse, fiveDayForecastResponse, placeInformation] = await Promise.all([
+            this.axios.get("/api/weather", {params: {city: selectedCity}}),
+            this.axios.get("/api/forecast", {params: {city: selectedCity}}),
+            this.axios.get("/api/geoapify", {params: {city: selectedCity}})
+          ]);
           this.currentWeather = currentWeatherResponse.data;
-
-          const fiveDayForecastResponse = await this.axios.post("/api/fetchForecastData", { selectedCity });
-          this.fiveDayForecast = fiveDayForecastResponse.data.list;
+          this.fiveDayForecast = fiveDayForecastResponse.data;
+          this.placeInformation = placeInformation.data
+          console.log(this.placeInformation)
         } catch (error) {
           console.error(error);
         }
       }
     },
     formatDate(dateString) {
-      const date = new Date(dateString);
-      return date.toLocaleDateString();
+      const date = new Date(dateString * 1000);
+      return date.toLocaleString();
     }
   }
 };
 </script>
-
-<style scoped>
-.widget {
-  width: 300px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  overflow: hidden;
-}
-.widget-header {
-  background-color: lightgray;
-  padding: 10px;
-  text-align: center;
-}
-.widget-body {
-  padding: 10px;
-}
-</style>

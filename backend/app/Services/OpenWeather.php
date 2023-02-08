@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Http as Client;
 
-class OpenWeather implements WeatherInterfaces
+class OpenWeather implements ApiInterfaces
 {
     public function getConfig(): array
     {

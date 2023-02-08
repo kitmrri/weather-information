@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Api\WeatherController;
+use App\Http\Controllers\Api\GeoapifyController;
 use App\Services\OpenWeather;
-use App\Services\WeatherInterfaces;
+use App\Services\OpenGeoapify;
+use App\Services\ApiInterfaces;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,7 +18,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(WeatherInterfaces::class, OpenWeather::class);
+        // $this->app->bind(ApiInterfaces::class, OpenWeather::class);
+        $this->app->when(WeatherController::class)
+            ->needs(ApiInterfaces::class)
+            ->give(OpenWeather::class);
+
+        $this->app->when(GeoapifyController::class)
+            ->needs(ApiInterfaces::class)
+            ->give(OpenGeoapify::class);
     }
 
     /**
