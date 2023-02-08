@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col h-screen widget">
-    <div class="text-lg font-medium text-center text-blue-500 bg-center bg-cover" :style="backgroundImage" v-if="currentWeather.main">
+    <div class="text-lg font-bold tracking-wide text-center text-black bg-center bg-cover" :style="backgroundImage" v-if="currentWeather.main">
       <h2 class="capitalize text-transform:">
         Current Weather in {{selectedCity}}: {{ currentWeather.main.temp }} &#8451; - {{ currentWeather.weather[0].description }}
           <img :src="'http://openweathermap.org/img/wn/' + currentWeather.weather[0].icon + '.png'"
