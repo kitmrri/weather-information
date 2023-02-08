@@ -35,6 +35,7 @@
         <li class="border border-slate-600 rounded p-4 mb-4" v-for="(restaurant, key) in restaurants" :key="key">
           <p>Name: {{ restaurant.name }}</p>
           <p>Address: {{ restaurant.address_line }}</p>
+          <a :href="`https://www.google.com/maps/search/?api=1&query=${encodeURI(restaurant.name)}`" target="_blank" class="text-blue-300">Open Map</a>
         </li>
       </ul>
     </div>
