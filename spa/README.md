@@ -7,6 +7,9 @@ I used tailwind because it is a highly optimized and performance-focused CSS fra
 
 Vue.js offers a reactive and flexible approach to frontend development, allowing for smooth and seamless updates to the user interface. This satisfies the `reactive` requirement of the application. Using it with `Axios` makes it very easy and simple to access the backend and database. This allows for a quick and easy retrieval of the required data.
 
+## UI/UX Implementation
+I styled the application this way for the users to quickly see all the details they are looking for at a glance. I also added a `link to google maps` on each of the Restaurant and Tourist Attractions in the list. There is also a sidebar navigation on the left side for users to quickly change City that they want to look at.
+
 ## Features
 * Utilizes the power of Tailwind CSS for fast and efficient styling
 * Vue.js provides a reactive and efficient way to handle the frontend logic
