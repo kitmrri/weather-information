@@ -1,6 +1,6 @@
 <template>
   <div class="flex bg-cover bg-center" style="background-image: url('./src/assets/background.jpg');">
-    <div class="w-1/4 p-4 bg-transparent text-white">
+    <div class="w-1/5 p-4 bg-transparent text-white">
       <h3 class="text-xl font-bold mb-4 ">Cities</h3>
       <ul class="list-group overflow-y-scroll max-h-screen min-h-screen">
         <li class="list-group-item cursor-pointer hover:bg-gray-400 transition-all duration-200 ease-in-out p-4" v-for="(city, key) in cities" @click="selectCity(city)" :key="key">
@@ -8,7 +8,7 @@
         </li>
       </ul>
     </div>
-    <div class="w-3/4 p-4 bg-transparent">
+    <div class="w-4/5 p-4 bg-transparent">
       <SelectedCity :selectedCity="selectedCity"/>
     </div>
   </div>

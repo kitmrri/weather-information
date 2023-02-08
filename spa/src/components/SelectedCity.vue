@@ -1,10 +1,13 @@
 <template>
   <div class="h-screen flex flex-col widget">
-    <div class="text-lg text-center font-medium bg-sky-500" v-if="currentWeather.main">
+    <div class="text-lg text-center text-gray-100 font-medium bg-cover bg-center" :style="backgroundImage" v-if="currentWeather.main">
       <h2 class="text-transform: capitalize">
-        Current Weather in {{selectedCity}}: {{ currentWeather.main.temp }} &#8451; - {{ currentWeather.weather[0].description }}
-        <img :src="'http://openweathermap.org/img/wn/' + currentWeather.weather[0].icon + '.png'"
+        Current Weather in {{selectedCity}}: {{ currentWeather.main.temp }} &#8451; 
+        <p>
+          {{ currentWeather.weather[0].description }}
+          <img :src="'http://openweathermap.org/img/wn/' + currentWeather.weather[0].icon + '.png'"
             style="display: inline-block; vertical-align: middle;">
+        </p>
       </h2>
     </div>
     <div class="flex h-full bg-transparent text-white">
@@ -66,6 +69,12 @@ export default {
         grouped[date].push(forecast);
       });
       return grouped;
+    },
+    backgroundImage() {
+      let imageUrl = "./src/assets/" + this.selectedCity + ".jpg";
+      return {
+        "background-image": `url(${imageUrl})`
+      };
     }
   },
   methods: {
