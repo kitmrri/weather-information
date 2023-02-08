@@ -24,7 +24,7 @@
         <li class="p-4 mb-4 border rounded border-slate-600" v-for="(touristSpot, key) in touristSpots" :key="key">
           <p>Name: {{ touristSpot.name }}</p>
           <p>Address: {{ touristSpot.address_line }}</p>
-          <a :href="`https://www.google.com/maps/search/?api=1&query=${encodeURI(touristSpot.name)}`" target="_blank" class="text-blue-300">Open Map</a>
+          <a :href="`https://www.google.com/maps/search/?api=1&query=${encodeURI(touristSpot.name)}`" target="_blank" class="text-blue-700">Open Map</a>
         </li>
       </ul>
     </div>
@@ -35,7 +35,7 @@
         <li class="p-4 mb-4 border rounded border-slate-600" v-for="(restaurant, key) in restaurants" :key="key">
           <p>Name: {{ restaurant.name }}</p>
           <p>Address: {{ restaurant.address_line }}</p>
-          <a :href="`https://www.google.com/maps/search/?api=1&query=${encodeURI(restaurant.name)}`" target="_blank" class="text-blue-300">Open Map</a>
+          <a :href="`https://www.google.com/maps/search/?api=1&query=${encodeURI(restaurant.name)}`" target="_blank" class="text-blue-600">Open Map</a>
         </li>
       </ul>
     </div>
