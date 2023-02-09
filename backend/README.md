@@ -5,7 +5,7 @@ This API provides weather forecast information for a given location, in our case
 
 The data is fetched from the OpenWeatherMap and Geoapify APIs, and is saved in a MySQL database to minimize API calls and improve performance. There is a huge gap in speed when comparing every API call to when just fetching from database.
 
-I created a custom command called `getopenweather` and `getgeoapify` to 'prepare' the data for the 5-day forecast and geoapify. This also ensured the speed to which the data is being served to the frontend.
+I created a custom command called `getopenweather` and `getgeoapify` to 'prepare' the data for the 5-day forecast and geoapify. This also ensured the speed to which the data is being served to the frontend. I took advantage of Laravel's `Task Scheduling` to truncate the `weather` table and run the custom command `getopenweather` daily. This makes sure that the 5 Day Forecast data is up-to-date on a daily basis. 
 
 There is a reusable interface called `ApiInterface`, it is a `ServiceProvider` that `OpenWeather` and `OpenGeoapify` is using to create its own use of the function but not altering the `main function` which is inside the ApiInterface.
 
