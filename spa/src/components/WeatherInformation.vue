@@ -9,7 +9,7 @@
     <aside id="cities-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
       <div class="h-full px-3 py-4 overflow-y-auto bg-transparent">
           <ul class="space-y-2">
-            <li class="p-4 text-black transition-all duration-200 ease-in-out cursor-pointer hover:bg-gray-700" v-for="(city, key) in cities" @click="selectCity(city)" :key="key">
+            <li class="p-4 text-black transition-all duration-200 ease-in-out rounded-lg shadow-md cursor-pointer hover:bg-gray-700" v-for="(city, key) in cities" @click="selectCity(city)" :key="key">
               {{ city }}
             </li>
           </ul>
@@ -20,10 +20,9 @@
         <SelectedCity :selectedCity="selectedCity"/>
       </div>
     </div>
-
-
   </div>
 </template>
+
 
 <script>
 import { inject } from "vue";

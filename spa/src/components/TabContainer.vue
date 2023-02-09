@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-full overflow-y-auto overscroll-contain">
     <div class="text-sm font-medium text-center border-b border-gray-200 dark:text-black dark:border-gray-700">
       <ul class="flex flex-wrap -mb-px">
         <li class="mr-2">

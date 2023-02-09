@@ -8,8 +8,8 @@
       </h2>
     </div>
     <div class="flex h-full text-black">
-      <div class="flex flex-col flex-1">
-        <div class="flex-grow-0 h-full overflow-y-auto overscroll-contain">
+      <div class="flex-1 flex-grow">
+        <div class="h-full overflow-y-auto overscroll-contain">
           <div class="py-2 text-center">
             <h2 class="text-lg font-medium">5 Day Forecast:</h2>
           </div>   
@@ -23,12 +23,13 @@
           </div>
         </div>
       </div>
-      <div class="flex-1">
+      <div class="flex-1 flex-grow">
         <TabContainer :placeInformation="placeInformation"/>
       </div>
     </div>
   </div>
 </template>
+
 
 <script>
 import { inject } from "vue";
