@@ -28,8 +28,8 @@ Make sure you have .env file, copy .env.example and edit the database values. Al
 ```bash
 OPENWEATHER_API_KEY=YOUR_API_KEY
 OPENWEATHER_BASE_URL=https://api.openweathermap.org/data/2.5
-GEOAPIFY_API_KEY=312bc95953e648f59928868cace5085f
-GEOAPIFY_BASE_URL=YOUR_API_KEY
+GEOAPIFY_API_KEY=YOUR_API_KEY
+GEOAPIFY_BASE_URL=https://api.geoapify.com/v2/places
 ```
 
 and in spa:
