@@ -3,7 +3,7 @@
 
 This frontend SPA application is built using Tailwind CSS for styling and Vue.js as the JavaScript framework. Axios is used to make API calls to the backend and access the database. 
 
-I used tailwind because it is a highly optimized and performance-focused CSS framework, providing a fast and efficient way to style the application. This also makes modifying the looks more trivial due to its rich documentation.
+I used tailwind because it is a highly optimized and performance-focused CSS framework, providing a fast and efficient way to style the application. This also makes modifying the looks more trivial due to its rich documentation. Tailwind also provides `responsive` variants for the developers to build adaptive interfaces with ease.
 
 Vue.js offers a reactive and flexible approach to frontend development, allowing for smooth and seamless updates to the user interface. This satisfies the `reactive` requirement of the application. Using it with `Axios` makes it very easy and simple to access the backend and database. This allows for a quick and easy retrieval of the required data.
 
