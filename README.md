@@ -22,6 +22,7 @@ Run the following command to install the dependencies in backend:
 ```bash
 cd backend
 npm install
+composer install
 ```
 
 Make sure you have .env file, copy .env.example and edit the database values. Also, you need to add these variable to .env file
