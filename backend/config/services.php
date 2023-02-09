@@ -30,5 +30,12 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-
+    'openweather' => [
+        'key' => env('OPENWEATHER_API_KEY'),
+        'base_url' => env('OPENWEATHER_BASE_URL'),
+    ],
+    'geoapify' => [
+        'key' => env('GEOAPIFY_API_KEY'),
+        'base_url' => env('GEOAPIFY_BASE_URL'),
+    ],
 ];
