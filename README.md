@@ -3,7 +3,7 @@
 
 The application aims to provide weather information for specific countries in Japan (Tokyo, Yokohama, Kyoto, Osaka, Sapporo and Nagoya). This app displays the current weather and a 5 day forecast of the selected city. This application also gathers Place Information from Geoapify and displays the nearest `Restaurants` and `Tourist Attractions` within the selected city.
 
-**Explanation on why the technologies used below are the one that I used in creating this application.**
+**Explanation on why the technologies used below are the one that I used in creating this application can be seen in `backend/` and `spa/` directories.**
 
 ## Technologies Used
 - Laravel: A PHP framework for web application development
