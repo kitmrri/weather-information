@@ -21,6 +21,8 @@ class OpenWeather implements ApiInterfaces
         $response = Client::withToken($config['key'])->timeout(30)->get($url, [
             'q' => $params['city'],
             'appid' => $config['key'],
+            'units' => 'metric'
+ 
         ]);
 
         return $response->json();
