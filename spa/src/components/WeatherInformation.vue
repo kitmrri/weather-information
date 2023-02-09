@@ -23,7 +23,6 @@
   </div>
 </template>
 
-
 <script>
 import { inject } from "vue";
 import SelectedCity from "./SelectedCity.vue";
